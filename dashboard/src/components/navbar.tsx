@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,24 +10,15 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-border-light">
       <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-7 h-7 rounded-lg bg-foreground flex items-center justify-center transition-transform group-hover:scale-105">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight">
-            Perry
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/perry-logo.png"
+            alt="Perry"
+            width={92}
+            height={30}
+            priority
+            className="h-7 w-auto transition-transform group-hover:scale-105"
+          />
         </Link>
 
         <div className="flex items-center gap-1">
@@ -38,6 +30,12 @@ export function Navbar() {
           </NavLink>
           <NavLink href="/demo" active={pathname === "/demo"}>
             Demo
+          </NavLink>
+          <NavLink
+            href="/presentation"
+            active={pathname === "/presentation"}
+          >
+            Presentation
           </NavLink>
         </div>
 

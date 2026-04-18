@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar";
+import Image from "next/image";
 import Link from "next/link";
 
 const GITHUB_APP_INSTALL_URL = "#install";
@@ -285,22 +286,14 @@ jobs:
       {/* Footer */}
       <footer className="border-t border-border-light py-8">
         <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-[13px] text-muted">
-            <div className="w-5 h-5 rounded-md bg-foreground flex items-center justify-center">
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            Perry
+          <div className="flex items-center text-[13px] text-muted">
+            <Image
+              src="/perry-logo.png"
+              alt="Perry"
+              width={66}
+              height={22}
+              className="h-5 w-auto"
+            />
           </div>
           <p className="text-[13px] text-muted">
             Built at Lund University Hackathon 2026
