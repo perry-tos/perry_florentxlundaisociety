@@ -103,13 +103,6 @@ export default function PresentationPage() {
               <span className="text-muted">You didn&apos;t notice.</span> Perry
               did.
             </p>
-            <p className="mt-4 text-[17px] text-muted">
-              Press{" "}
-              <kbd className="px-2 py-0.5 rounded-md border border-border-light bg-surface font-mono text-[13px]">
-                ↓
-              </kbd>{" "}
-              or scroll to begin
-            </p>
           </div>
         </Slide>
 
