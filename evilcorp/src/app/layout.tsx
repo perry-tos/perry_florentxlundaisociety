@@ -14,9 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Meridian Global — Institutional Data Infrastructure",
+  title: "Meridian Pay — Global Payment Infrastructure",
   description:
-    "Meridian provides sovereign-grade data infrastructure to the world's leading financial, insurance, and governmental institutions.",
+    "Meridian Pay powers card acquiring, instant payouts, and cross-border settlement for ambitious businesses in 97 countries.",
 };
 
 export default function RootLayout({

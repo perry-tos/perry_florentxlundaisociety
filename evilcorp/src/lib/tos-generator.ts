@@ -7,16 +7,16 @@
 export const UPDATE_MARKER = "%%UPDATE_ANCHOR%%";
 
 export const BAD_PARAGRAPH =
-  "Meridian may collect, store, combine, and sell all personal data associated with your account — including your name, email, contacts, precise location, browsing history, device identifiers, and any inferences we derive from this information — to advertisers, data brokers, insurance providers, and other third parties, at our sole discretion and without further notice to you.";
+  "Meridian may collect, combine, and sell all personal and transaction data associated with your account — including your name, email, full payment history, card numbers, merchant identifiers, precise location, device fingerprints, and any behavioral inferences we derive from your purchases — to advertisers, data brokers, insurance providers, and other third parties, at our sole discretion and without further notice to you.";
 
 /**
  * Phrases inside BAD_PARAGRAPH that the UI highlights during the demo
  * to make it unmistakable *why* the clause harms customers.
  */
 export const BAD_PHRASES: { phrase: string; reason: string }[] = [
-  { phrase: "sell all personal data", reason: "Sells user data for profit" },
-  { phrase: "precise location, browsing history, device identifiers", reason: "Tracks highly sensitive personal info" },
-  { phrase: "advertisers, data brokers, insurance providers", reason: "Shares data with parties that can raise your premiums" },
+  { phrase: "sell all personal and transaction data", reason: "Sells user payment data for profit" },
+  { phrase: "full payment history, card numbers, merchant identifiers", reason: "Exposes sensitive financial records" },
+  { phrase: "advertisers, data brokers, insurance providers", reason: "Shares financial history with parties that can raise your premiums" },
   { phrase: "sole discretion and without further notice", reason: "No user consent or warning required" },
 ];
 
