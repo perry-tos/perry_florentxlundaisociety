@@ -4,17 +4,19 @@
 
 SPEAKER 1
 
-Today, every modern product is built on top of someone else's API. OpenAI for intelligence. Stripe for payments. AWS for infrastructure. Plaid, Twilio, Shopify, GitHub — the list keeps growing.
+Earlier this year, Stripe — the company that handles payments for most tech startups — quietly brought in two new partners to help process your customers' data. Overnight, your users' information started flowing through two companies you'd never heard of.
 
-And behind each of those APIs sits a Terms of Service page. A page that quietly changes.
+The change was public. It was announced. It was on Stripe's legal terms page.
 
-How often, you ask?
+Which no engineer at a fifteen-person B2B SaaS has any reason to visit. The API didn't change. The integration didn't change. The code kept running. And months later, the privacy contract you signed with your own customers is still broken — and you have no idea.
 
-**"Last year alone, OpenAI rewrote its data-use policy three times. Stripe changed chargeback terms without sending an email. AWS updated its GenAI clauses on a Friday night. And 47% of engineering teams only discover a ToS violation once it's already in production."**
+This isn't one bad vendor. A small company today runs on ten-plus third-party APIs — OpenAI, Stripe, AWS, Plaid, Twilio, Shopify, GitHub — and every one of them publishes policy updates on legal surfaces that engineers structurally do not monitor.
 
-Most teams don't read these pages. Legal can't possibly read every page for every vendor, every week. And engineering was never supposed to.
+**The information isn't hidden. It just never reaches you.**
 
-But the moment one of those clauses changes — about data retention, about model training, about attribution, about rate limits — your product is suddenly out of compliance. Or worse, broken. And you don't find out until a provider rate-limits you, terminates mid-contract, or a customer's lawyer does.
+A small team can't possibly read every page, every week, for every vendor. And doing it by hand burns the engineering hours you actually need to ship product.
+
+**"47% of engineering teams only discover a ToS violation once it's already in production. The median notice period before providers enforce new clauses is 14 days."**
 
 One silent edit on a page nobody reads can cost you two million dollars and a weekend.
 
@@ -26,13 +28,20 @@ SPEAKER 1
 
 That's why we built **Perry**.
 
-Perry watches every public Terms of Service page your company depends on, detects the diff the moment it happens, and tells your engineers exactly what changed, what it breaks, and which file to fix — as a GitHub Issue opened directly in your own repo.
+Perry closes the gap between where vendors publish policy changes and where engineers actually live.
 
-It is built for the people who actually have to solve this problem in real life: platform engineers, backend teams, and the legal-engineering liaisons who get paged when a provider quietly rewrites a clause.
+**Your vendors write ToS updates for lawyers. Perry writes them for you.**
 
-And the part that makes Perry different: **your code never leaves your servers.** We don't scan your codebase. We broadcast a structured advisory, and the match-against-your-code step runs inside your own GitHub Action. We only ever see public ToS pages.
+Four things matter:
 
-Instead of finding out in production, teams find out the moment the page changes.
+- **Translation.** We read the legalese so your engineers don't have to. Every advisory is plain language with a recommendation.
+- **Targeting.** We only alert on changes that affect code you've actually shipped. Perry checks your package manifests locally and stays quiet on everything else.
+- **Addressability.** Advisories arrive where engineers already live — as a GitHub Issue in your own repo. Not another dashboard, not another email.
+- **No barrier to adopt.** Perry never sees your code. No source code, dependency graph, or architecture details leave your environment. No security review, no DPA, no vendor onboarding.
+
+Installing Perry is a free call option. If nothing happens, you lose nothing. If a vendor changes terms under you, you catch it early. The ask isn't *"agree this is acute"* — it's *"install a thing that costs you nothing and insures you against problems you aren't sure you have."*
+
+Perry is built for the CTO of a five-to-fifty engineer B2B SaaS or AI-native company — the teams without dedicated legal or compliance staff, running on the most third-party APIs, with the least margin for a surprise clause.
 
 ---
 
@@ -40,17 +49,17 @@ Instead of finding out in production, teams find out the moment the page changes
 
 SPEAKER 2
 
-So imagine we're a fintech startup. We use Stripe for payments, OpenAI for our support copilot, and AWS for everything else. Let's see what happens when one of them quietly edits a clause.
+So imagine we're that fifteen-person AI startup. We use OpenAI for our product, Stripe for payments, AWS for everything else. Let's see what happens the moment OpenAI quietly edits a clause.
 
 - Open the Perry dashboard
 - Click **Start Demo Mode** — "God Mode"
 - Watch the pipeline light up, step by step:
-  1. **Crawler** detects a change on the OpenAI ToS page — SHA-256 hash no longer matches the last snapshot.
-  2. **Brain** pulls the diff, runs it through GPT-4o with a structured Instructor schema, and produces a typed advisory: *"Section 3.2 now prohibits storing model output for longer than 30 days without user consent."*
-  3. **Dispatcher** signs an RS256 JWT, mints a scoped GitHub installation token for our org, and broadcasts.
-  4. **Edge Bot** — running inside our own GitHub Action — receives the advisory, scans our manifest for code paths that store OpenAI responses, and opens an Issue in our repo.
-- Switch to the customer's GitHub tab. The Issue is already there. Title, affected files, suggested remediation.
+  1. **Crawler** snapshots the OpenAI usage policies page. The SHA-256 hash no longer matches the last snapshot — a change just happened.
+  2. **Brain** pulls the diff, runs it through GPT-4o with a structured Instructor schema, and produces a typed advisory in plain language: *"Usage policy now prohibits automated high-stakes decisions in legal, medical, and financial workflows without human review. Affects any code path using OpenAI for autonomous decisioning."*
+  3. **Dispatcher** signs an RS256 JWT, mints a scoped GitHub installation token for our org, and broadcasts — only to customers whose manifest actually lists OpenAI.
+  4. **Edge Bot** — running inside our own GitHub Action — scans the manifest, finds the affected files, and opens an Issue in our repo.
+- Switch to the customer's GitHub tab. The Issue is already there. Plain-language summary, affected files, suggested remediation.
 
-End-to-end: under ten seconds. Zero code left our servers. And the engineer on-call knows before the provider's enforcement window even begins.
+End-to-end: under ten seconds. Zero code left our servers. The engineer on call knows before the enforcement window even begins — from the one place they already open every day.
 
 That's Perry.
