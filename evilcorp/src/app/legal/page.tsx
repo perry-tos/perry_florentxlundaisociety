@@ -78,7 +78,7 @@ export default function LegalPage() {
     setPhase("scrolling");
     const rect = anchorRef.current?.getBoundingClientRect();
     if (rect) {
-      const targetY = window.scrollY + rect.top - window.innerHeight / 2;
+      const targetY = window.scrollY + rect.top - window.innerHeight / 3;
       await animatedScrollTo(targetY, SCROLL_DURATION_MS);
     }
 
@@ -89,7 +89,13 @@ export default function LegalPage() {
     for (let i = 1; i <= total; i++) {
       setTypedChars(i);
       if (i % 40 === 0) {
-        anchorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        const r = anchorRef.current?.getBoundingClientRect();
+        if (r) {
+          window.scrollTo({
+            top: window.scrollY + r.top - window.innerHeight / 3,
+            behavior: "smooth",
+          });
+        }
       }
       await new Promise((r) => setTimeout(r, stepMs));
     }
