@@ -312,11 +312,9 @@ export default function DemoPage() {
                 </div>
               ) : (
                 <div className="p-12 text-center text-[14px] text-muted">
-                  {stage === "idle"
-                    ? "Trigger a ToS change to see the analysis"
-                    : stage === "error"
-                      ? "No analysis — pipeline failed"
-                      : "Analyzing (this may take up to 30s)..."}
+                  {stage === "error"
+                    ? "No analysis — pipeline failed"
+                    : "Analyzing (this may take up to 30s)..."}
                 </div>
               )}
             </div>
