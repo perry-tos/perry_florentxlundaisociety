@@ -1,4 +1,4 @@
-# Perry — Pitch Script
+# Perry - 1
 
 ## 0:00–1:00 — The problem
 
@@ -8,17 +8,13 @@ Earlier this year, Stripe — the company that handles payments for most tech st
 
 The change was public. It was announced. It was on Stripe's legal terms page.
 
-Which no engineer at a fifteen-person B2B SaaS has any reason to visit. The API didn't change. The integration didn't change. The code kept running. And months later, the privacy contract you signed with your own customers is still broken — and you have no idea.
+Which no employee at a fifteen-person startup has any reason to visit. The API docs didn't change. The API didn't change. The integration didn't change. The code kept running. And months later, the privacy contract you signed with your own customers is still broken — and you have no idea.
 
-This isn't one bad vendor. A small company today runs on ten-plus third-party APIs — OpenAI, Stripe, AWS, Plaid, Twilio, Shopify, GitHub — and every one of them publishes policy updates on legal surfaces that engineers structurally do not monitor.
+This isn't restricted to one bad vendor. A small company today runs on ten-plus third-party services — OpenAI, AWS, Twilio, Shopify — and every one of them publishes policy updates on legal surfaces that engineers structurally do not monitor.
 
 **The information isn't hidden. It just never reaches you.**
 
-A small team can't possibly read every page, every week, for every vendor. And doing it by hand burns the engineering hours you actually need to ship product.
-
-**"47% of engineering teams only discover a ToS violation once it's already in production. The median notice period before providers enforce new clauses is 14 days."**
-
-One silent edit on a page nobody reads can cost you two million dollars and a weekend.
+A small team can't possibly read every page, every week, for every vendor. And doing it manually costs hours of tedious work no small team can spare. No startup wants to put valuable man hours on analyzing terms of services”
 
 ---
 
@@ -54,10 +50,10 @@ So imagine we're that fifteen-person AI startup. We use OpenAI for our product, 
 - Open the Perry dashboard
 - Click **Start Demo Mode** — "God Mode"
 - Watch the pipeline light up, step by step:
-  1. **Crawler** snapshots the OpenAI usage policies page. The SHA-256 hash no longer matches the last snapshot — a change just happened.
-  2. **Brain** pulls the diff, runs it through GPT-4o with a structured Instructor schema, and produces a typed advisory in plain language: *"Usage policy now prohibits automated high-stakes decisions in legal, medical, and financial workflows without human review. Affects any code path using OpenAI for autonomous decisioning."*
-  3. **Dispatcher** signs an RS256 JWT, mints a scoped GitHub installation token for our org, and broadcasts — only to customers whose manifest actually lists OpenAI.
-  4. **Edge Bot** — running inside our own GitHub Action — scans the manifest, finds the affected files, and opens an Issue in our repo.
+    1. **Crawler** snapshots the OpenAI usage policies page. The SHA-256 hash no longer matches the last snapshot — a change just happened.
+    2. **Brain** pulls the diff, runs it through GPT-4o with a structured Instructor schema, and produces a typed advisory in plain language: *"Usage policy now prohibits automated high-stakes decisions in legal, medical, and financial workflows without human review. Affects any code path using OpenAI for autonomous decisioning."*
+    3. **Dispatcher** signs an RS256 JWT, mints a scoped GitHub installation token for our org, and broadcasts — only to customers whose manifest actually lists OpenAI.
+    4. **Edge Bot** — running inside our own GitHub Action — scans the manifest, finds the affected files, and opens an Issue in our repo.
 - Switch to the customer's GitHub tab. The Issue is already there. Plain-language summary, affected files, suggested remediation.
 
 End-to-end: under ten seconds. Zero code left our servers. The engineer on call knows before the enforcement window even begins — from the one place they already open every day.
