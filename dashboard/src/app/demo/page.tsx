@@ -455,13 +455,11 @@ export default function DemoPage() {
                 </div>
               ) : (
                 <div className="p-12 text-center text-[14px] text-muted">
-                  {stage === "idle"
-                    ? "No dispatches yet"
-                    : stage === "complete" && broadcast
-                      ? "No registered repos to dispatch to"
-                      : stage === "error"
-                        ? "Pipeline failed before dispatch"
-                        : "Waiting for analysis..."}
+                  {stage === "complete" && broadcast
+                    ? "No registered repos to dispatch to"
+                    : stage === "error"
+                      ? "Pipeline failed before dispatch"
+                      : "Waiting for analysis..."}
                 </div>
               )}
             </div>
