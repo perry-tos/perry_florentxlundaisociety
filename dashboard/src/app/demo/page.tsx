@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/navbar";
 import { DEMO_OLD_TOS, DEMO_NEW_TOS } from "@/lib/mock-data";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type PipelineStage =
   | "idle"
@@ -77,6 +77,7 @@ export default function DemoPage() {
   const [analysis, setAnalysis] = useState<DiffAnalysis | null>(null);
   const [broadcast, setBroadcast] = useState<BroadcastResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const autorunFiredRef = useRef<boolean>(false);
 
   const runDemo = async (): Promise<void> => {
     setAnalysis(null);
@@ -124,6 +125,18 @@ export default function DemoPage() {
     setBroadcast(null);
     setErrorMessage(null);
   };
+
+  useEffect(() => {
+    if (autorunFiredRef.current) return;
+    if (typeof window === "undefined") return;
+    const params: URLSearchParams = new URLSearchParams(window.location.search);
+    if (params.get("autorun") !== "1") return;
+    autorunFiredRef.current = true;
+    const timeoutId: ReturnType<typeof setTimeout> = setTimeout(() => {
+      void runDemo();
+    }, 0);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const isRunning: boolean =
     stage === "crawling" || stage === "analyzing" || stage === "dispatching";
