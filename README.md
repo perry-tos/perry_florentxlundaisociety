@@ -1,6 +1,10 @@
-<h1 align="center">Perry</h1>
+<div align="center">
+<img width="300" alt="Image" src="https://github.com/user-attachments/assets/aafa9167-1c0d-4d2a-8876-1c0d9bbab613" />
+</div>
 
-*Your vendors write ToS updates for lawyers. Perry writes them for you.*
+<p align="center"><i>Your vendors write ToS updates for lawyers. Perry writes them for you.</i></p>
+
+<br/>
 
 Perry watches the public Terms of Service (ToS) pages of the providers your team depends on. When a ToS change actually affects a package you're using, it alerts you in the way you choose (Github Issue, Email, etc.) a recommendation on what changed and what to do next, in plain English. The best part about it? Your code never leaves your repo.
 
