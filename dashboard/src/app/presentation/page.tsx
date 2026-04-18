@@ -235,30 +235,52 @@ export default function PresentationPage() {
             <SlideEyebrow>Live demo</SlideEyebrow>
             <h2 className="mt-6 text-[clamp(44px,6vw,88px)] leading-[0.98] font-semibold tracking-[-0.03em]">
               Let&apos;s catch one{" "}
-              <span className="italic text-accent">live.</span>
+              <span className="italic" style={{ color: "#239C94" }}>
+                live<span style={{ color: "#E89D3A" }}>.</span>
+              </span>
             </h2>
             <p className="mt-8 text-[21px] text-muted max-w-2xl mx-auto">
               We&apos;ll simulate a real ToS change and watch the full pipeline
               — crawl, analyze, dispatch, issue — in under ten seconds.
             </p>
-            <a
-              href="/demo"
-              className="inline-flex items-center gap-2.5 mt-12 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
-            >
-              Open Demo Mode
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="http://localhost:3001/"
+                className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
               >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </a>
+                Open Demo Mode
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </a>
+              <a
+                href="http://localhost:3000/demo"
+                className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
+              >
+                Open Behind the Scenes
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </a>
+            </div>
           </div>
         </Slide>
 
