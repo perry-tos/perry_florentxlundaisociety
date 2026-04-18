@@ -10,7 +10,7 @@ Perry watches the public Terms of Service (ToS) pages of the providers your team
 
 ## The problem
 
-Small engineering teams quickly stack up a list of providers their product depends on: Stripe for payments. Anthropic for AI. Twilio for messaging. Auth0 for identity. Every one of those providers quietly pushes policy updates several times a year. The updates are public. They're also written for lawyers, buried on legal pages nobody at a fast-moving startup has time to read.
+Small engineering teams quickly stack up a list of providers their product depends on: Stripe for payments, Anthropic for AI, Twilio for messaging, Auth0 for identity. Every one of those providers quietly pushes policy updates several times a year. The updates are public. They're also written for lawyers, buried on legal pages nobody at a fast-moving startup has time to read.
 
 So the updates don't get read. The relevant ones get noticed months later, when a customer complains, an auditor flags it, or something breaks. Big companies handle this with legal staff. Small companies just don't.
 
