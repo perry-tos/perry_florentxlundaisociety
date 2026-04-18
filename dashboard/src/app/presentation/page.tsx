@@ -246,6 +246,8 @@ export default function PresentationPage() {
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href="http://localhost:3001/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
               >
                 Open Demo Mode
