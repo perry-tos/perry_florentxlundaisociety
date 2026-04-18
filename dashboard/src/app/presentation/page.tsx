@@ -203,7 +203,7 @@ export default function PresentationPage() {
                     "_blank",
                     "noopener,noreferrer",
                   );
-                  window.location.href = "http://localhost:3000/demo";
+                  window.location.href = "http://perry-tos.netlify.app/demo";
                 }}
                 className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
               >
