@@ -180,7 +180,7 @@ export default function Home() {
       {/* Closing CTA — Waitlist form */}
       <section
         id="waitlist"
-        className="border-t border-border-light px-6 py-20 sm:py-36"
+        className="scroll-mt-16 border-t border-border-light px-6 py-20 sm:py-36"
       >
         <div className="max-w-2xl mx-auto">
           <div className="text-center">

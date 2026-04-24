@@ -1,7 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import type { MouseEvent } from "react";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  function handleWaitlistClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    const target = document.getElementById("waitlist");
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (window.location.hash !== "#waitlist") {
+      router.replace("/#waitlist", { scroll: false });
+    }
+  }
+
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-border-light">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -18,6 +41,7 @@ export function Navbar() {
 
         <Link
           href="/#waitlist"
+          onClick={handleWaitlistClick}
           className="text-[13px] font-medium bg-foreground text-white px-4 py-1.5 rounded-full transition-colors duration-200 hover:bg-accent-teal active:scale-[0.97]"
         >
           Waitlist
