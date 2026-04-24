@@ -129,7 +129,7 @@ export default function Home() {
                 </div>
                 <p className="text-[16px] leading-[1.55] text-foreground">
                   Two new outside companies will start handling your
-                  customers&rsquo; personal data —{" "}
+                  customers&rsquo; personal data -{" "}
                   <span
                     className="italic"
                     style={{ color: "var(--accent-teal)" }}
@@ -186,14 +186,13 @@ export default function Home() {
           <div className="text-center">
             <SectionEyebrow>Waitlist</SectionEyebrow>
             <h2 className="mt-6 text-[clamp(32px,4vw,56px)] font-semibold tracking-[-0.03em] leading-[1.05]">
-              Be the first to{" "}
-              <span className="underline decoration-[6px] decoration-[var(--accent-amber)] underline-offset-[6px]">
-                try Perry
-              </span>
-              .
+              <span className="whitespace-nowrap underline decoration-[6px] decoration-[var(--accent-amber)] underline-offset-[6px]">
+                Be the first
+              </span>{" "}
+              to try <span style={{ color: "var(--accent-teal)" }}>Perry</span>.
             </h2>
             <p className="mt-6 text-[17px] leading-relaxed text-muted">
-              Drop your email — we&apos;ll reach out when Perry launches.
+              Drop your email - we&apos;ll reach out when Perry launches.
             </p>
           </div>
 
@@ -213,7 +212,7 @@ export default function Home() {
             height={22}
             className="h-5 w-auto opacity-80"
           />
-          <p className="text-[13px] text-muted">Early access — Lund, 2026</p>
+          <p className="text-[13px] text-muted">Early access - Lund, 2026</p>
         </div>
       </footer>
     </div>
