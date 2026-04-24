@@ -1,9 +1,7 @@
 import Image from "next/image";
-import { EarlyAccessForm } from "@/components/early-access-form";
 import { HeroGrid } from "@/components/hero-grid";
 import { Navbar } from "@/components/navbar";
-
-const WAITLIST_URL = "http://karlsellergren.me/perry-waitlist";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 export default function Home() {
   return (
@@ -42,7 +40,7 @@ export default function Home() {
 
           <div className="animate-fade-in-up-delay-3 mt-12">
             <a
-              href={WAITLIST_URL}
+              href="#waitlist"
               className="inline-flex items-center gap-2 bg-foreground text-white text-[15px] font-medium px-7 py-3.5 rounded-full transition-colors transition-transform duration-200 hover:bg-accent-teal active:scale-[0.97] shadow-sm"
             >
               Sign up for the waitlist
@@ -105,14 +103,14 @@ export default function Home() {
                 <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted mb-6">
                   Source · Provider legal page
                 </div>
-                <pre className="font-mono text-[12.5px] leading-[1.75] text-muted whitespace-pre-wrap">{`4.2 Sub-Processors. Provider may engage
-additional sub-processors to assist in the
-processing of Personal Data. Provider will
-notify Customer of intended additions or
-replacements by posting updates on the
-Legal Information page. Continued use of
-the Services constitutes acceptance of
-such updates.`}</pre>
+                <p className="font-mono text-[12.5px] leading-[1.75] text-muted break-words">
+                  4.2 Sub-Processors. Provider may engage additional
+                  sub-processors to assist in the processing of Personal
+                  Data. Provider will notify Customer of intended additions
+                  or replacements by posting updates on the Legal
+                  Information page. Continued use of the Services
+                  constitutes acceptance of such updates.
+                </p>
               </div>
 
               {/* Right — Perry translation */}
@@ -162,7 +160,7 @@ such updates.`}</pre>
             </h2>
           </div>
 
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
             <ZeroCard
               heading="onboarding"
               body="One-click install. No paperwork, no vendor review, no kickoff call."
@@ -179,29 +177,28 @@ such updates.`}</pre>
         </div>
       </section>
 
-      {/* Closing CTA — Early access form */}
+      {/* Closing CTA — Waitlist form */}
       <section
-        id="early-access"
-        className="border-t border-border-light px-6 py-28 sm:py-36"
+        id="waitlist"
+        className="border-t border-border-light px-6 py-20 sm:py-36"
       >
         <div className="max-w-2xl mx-auto">
           <div className="text-center">
-            <SectionEyebrow>Early access</SectionEyebrow>
+            <SectionEyebrow>Waitlist</SectionEyebrow>
             <h2 className="mt-6 text-[clamp(32px,4vw,56px)] font-semibold tracking-[-0.03em] leading-[1.05]">
-              Request{" "}
+              Be the first to{" "}
               <span className="underline decoration-[6px] decoration-[var(--accent-amber)] underline-offset-[6px]">
-                early access
+                try Perry
               </span>
               .
             </h2>
             <p className="mt-6 text-[17px] leading-relaxed text-muted">
-              Bringing Perry to your company? Tell us about your team and
-              we&apos;ll reach out to get you set up.
+              Drop your email — we&apos;ll reach out when Perry launches.
             </p>
           </div>
 
-          <div className="mt-12">
-            <EarlyAccessForm />
+          <div className="mt-10">
+            <WaitlistForm />
           </div>
         </div>
       </section>

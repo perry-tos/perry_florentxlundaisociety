@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Perry — ToS Change Intelligence",
+  title: {
+    default: "Perry",
+    template: "%s — Perry",
+  },
   description:
     "Terms changed. You didn't notice. Perry did. Your vendors write ToS for lawyers, Perry writes them for you.",
 };
