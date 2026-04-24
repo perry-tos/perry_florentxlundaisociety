@@ -3,7 +3,7 @@ import { EarlyAccessForm } from "@/components/early-access-form";
 import { Navbar } from "@/components/navbar";
 
 export const metadata = {
-  title: "Early access — Perry",
+  title: "Early access",
   description:
     "Request early access to Perry — AI-powered ToS change monitoring for teams running on third-party APIs.",
 };
