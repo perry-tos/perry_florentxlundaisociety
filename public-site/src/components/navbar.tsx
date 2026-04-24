@@ -25,10 +25,28 @@ export function Navbar() {
     }
   }
 
+  function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (window.location.hash) {
+      router.replace("/", { scroll: false });
+    }
+  }
+
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-border-light">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="flex items-center group" aria-label="Perry home">
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="flex items-center group"
+          aria-label="Perry home"
+        >
           <Image
             src="/perry-logo.png"
             alt="Perry"
