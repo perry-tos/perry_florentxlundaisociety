@@ -99,8 +99,8 @@ html {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  --mx: 50%;
-  --my: 45%;
+  --mx: -9999px;
+  --my: -9999px;
 }
 
 .hero-tos-base,
@@ -149,6 +149,12 @@ html {
     rgba(0, 0, 0, 0.65) 40%,
     transparent 80%
   );
+}
+
+@media (hover: none) {
+  .hero-tos-spot {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

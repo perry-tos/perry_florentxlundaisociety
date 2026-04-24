@@ -51,9 +51,8 @@ export function HeroGrid() {
     };
 
     const reset = () => {
-      const rect = section.getBoundingClientRect();
-      targetXpx = rect.width / 2;
-      targetYpx = rect.height * 0.45;
+      targetXpx = -9999;
+      targetYpx = -9999;
       if (!pending) {
         pending = true;
         requestAnimationFrame(apply);
@@ -70,7 +69,6 @@ export function HeroGrid() {
       }
     };
 
-    reset();
     section.addEventListener("mousemove", onMove);
     section.addEventListener("mouseleave", reset);
     return () => {
