@@ -108,7 +108,6 @@ html {
   position: absolute;
   inset: 0;
   background-size: 48px 48px;
-  animation: gridDrift 28s linear infinite;
   pointer-events: none;
 }
 
@@ -146,15 +145,6 @@ html {
     rgba(0, 0, 0, 0.65) 40%,
     transparent 80%
   );
-}
-
-@keyframes gridDrift {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 48px 48px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
