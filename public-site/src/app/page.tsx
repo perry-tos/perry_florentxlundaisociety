@@ -126,19 +126,34 @@ export default function Home() {
 
       {/* ToS change ticker — recent real-world changes Perry tracks */}
       <section
-        className="relative overflow-hidden border-t border-border-light bg-surface py-4"
+        className="relative overflow-hidden border-t border-border-light bg-white py-3.5"
         aria-label="Recently observed terms-of-service changes"
       >
+        <div className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center gap-2">
+          <span
+            className="w-[6px] h-[6px] rounded-full animate-pulse-dot"
+            style={{ backgroundColor: "var(--accent-teal)" }}
+            aria-hidden="true"
+          />
+          <span
+            className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: "var(--eyebrow)" }}
+          >
+            Live
+          </span>
+        </div>
+
         <div
-          className="flex items-center gap-14 animate-[scroll_180s_linear_infinite] whitespace-nowrap w-max"
+          className="flex items-center animate-[scroll_180s_linear_infinite] whitespace-nowrap w-max sm:pl-30"
           aria-hidden="true"
         >
           {[...tosChanges, ...tosChanges].map((item, i) => (
             <ToSTickerItem key={i} {...item} />
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-surface to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-surface to-transparent" />
+
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10 bg-linear-to-r from-white via-white/90 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10 bg-linear-to-l from-white via-white/90 to-transparent" />
       </section>
       </div>
 
@@ -309,12 +324,14 @@ function ToSTickerItem({
   date: string;
 }) {
   return (
-    <span className="inline-flex items-baseline gap-3 text-[13px] leading-none">
-      <span className="font-medium text-foreground/90">{company}</span>
-      <span className="text-muted">{change}</span>
-      <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted/60">
+    <span className="inline-flex items-center gap-4 text-[13px] leading-none pr-10 border-r border-border-light/70 mr-10 last:border-r-0">
+      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted/70 tabular-nums">
         {date}
       </span>
+      <span className="font-medium text-foreground tracking-tight">
+        {company}
+      </span>
+      <span className="text-muted/90">{change}</span>
     </span>
   );
 }
