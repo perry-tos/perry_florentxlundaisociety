@@ -41,9 +41,12 @@ export default function MeridianLanding() {
               </span>
             </div>
           </Link>
-          <span className="text-[12px] tracking-widest uppercase text-white/80">
+          <Link
+            href="/legal"
+            className="text-[12px] tracking-widest uppercase text-white/80 hover:text-gold-400 transition-colors"
+          >
             Legal
-          </span>
+          </Link>
         </div>
       </nav>
 
@@ -101,7 +104,7 @@ export default function MeridianLanding() {
             © 2004–2026 Meridian Global Holdings, LLC · All rights reserved
           </div>
           <div className="flex gap-4">
-            <span>Legal</span>
+            <Link href="/legal" className="hover:text-gold-400 transition-colors">Legal</Link>
             <span>Privacy</span>
             <span>Cookies</span>
           </div>
