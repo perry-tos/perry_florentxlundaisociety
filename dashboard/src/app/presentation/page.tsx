@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { HeroGrid } from "@/components/hero-grid";
 import { Navbar } from "@/components/navbar";
 
 const SLIDE_COUNT = 6;
@@ -83,9 +84,13 @@ export default function PresentationPage() {
     <>
       <Navbar />
 
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <HeroGrid />
+      </div>
+
       <div
         ref={containerRef}
-        className="h-[calc(100vh-3rem)] overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white"
+        className="relative z-10 h-[calc(100vh-3rem)] overflow-y-auto snap-y snap-mandatory scroll-smooth"
       >
         {/* Slide 1 — The setup + the consequence */}
         <Slide idx={0} registerSlide={registerSlide}>
@@ -206,7 +211,7 @@ export default function PresentationPage() {
                   window.location.href =
                     "http://perry-tos.netlify.app/demo?autorun=1";
                 }}
-                className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all hover:bg-foreground/85 active:scale-[0.97] shadow-lg shadow-black/10"
+                className="inline-flex items-center gap-2.5 bg-foreground text-white text-[15px] font-medium px-7 py-3 rounded-full transition-all duration-200 hover:bg-[#239C94] active:scale-[0.97] shadow-lg shadow-black/10"
               >
                 Start Demo Mode
                 <svg

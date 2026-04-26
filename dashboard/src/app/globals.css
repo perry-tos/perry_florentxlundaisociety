@@ -104,3 +104,67 @@ html {
 .animate-pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
 }
+
+/* Hero ToS text — faint base, darker text revealed in a moving spotlight */
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  --mx: -9999px;
+  --my: -9999px;
+}
+
+.hero-tos-base,
+.hero-tos-spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0 1rem;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.45;
+  text-align: justify;
+  word-break: break-word;
+  user-select: none;
+}
+
+.hero-tos-base {
+  color: rgba(29, 29, 31, 0.08);
+  mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    transparent 90%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    transparent 90%
+  );
+}
+
+.hero-tos-spot {
+  color: rgba(29, 29, 31, 0.2);
+  mask-image: radial-gradient(
+    circle 130px at var(--mx) var(--my),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.65) 40%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 130px at var(--mx) var(--my),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.65) 40%,
+    transparent 80%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
