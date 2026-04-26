@@ -87,16 +87,15 @@ export default function PresentationPage() {
         ref={containerRef}
         className="h-[calc(100vh-3rem)] overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white"
       >
-        {/* Slide 1 — Problem (Stripe) */}
+        {/* Slide 1 — The setup + the consequence */}
         <Slide idx={0} registerSlide={registerSlide}>
           <div className="max-w-4xl mx-auto text-center">
             <SlideEyebrow>The problem</SlideEyebrow>
             <h2 className="mt-6 text-[clamp(32px,4.5vw,64px)] leading-[1.05] font-semibold tracking-[-0.02em]">
-              Overnight, Stripe gave{" "}
+              Your customers&apos; data is private.{" "}
               <span className="underline decoration-[6px] decoration-[#E89D3A] underline-offset-[6px]">
-                two new partners
-              </span>{" "}
-              access to your customers&apos; data.
+                Until your provider decides it isn&apos;t.
+              </span>
             </h2>
             <p className="mt-8 text-[15px] font-mono uppercase tracking-widest text-muted/70">
               You have no idea.
@@ -109,13 +108,13 @@ export default function PresentationPage() {
           <div className="max-w-4xl mx-auto text-center">
             <SlideEyebrow>Why it keeps happening</SlideEyebrow>
             <h2 className="mt-6 text-[clamp(32px,4.5vw,64px)] leading-[1.05] font-semibold tracking-[-0.02em]">
-              Countless dependencies.{" "}
+              The information isn&apos;t hidden.{" "}
               <span className="underline decoration-[6px] decoration-[#E89D3A] underline-offset-[6px]">
-                Stripe could have been one of them.
+                It just never reaches you.
               </span>
             </h2>
             <p className="mt-8 text-[15px] font-mono uppercase tracking-widest text-muted/70">
-              You can&apos;t possibly track them all.
+              Hours no small team can spare.
             </p>
           </div>
         </Slide>
@@ -149,7 +148,10 @@ export default function PresentationPage() {
               Meet Perry
             </div>
             <h2 className="text-[clamp(36px,5vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em]">
-              Providers write ToS for lawyers. Perry writes them for you.
+              Providers write ToS for lawyers.{" "}
+              <span className="underline decoration-[6px] decoration-[#E89D3A] underline-offset-[6px]">
+                Perry writes them for you.
+              </span>
             </h2>
           </div>
         </Slide>
@@ -160,22 +162,20 @@ export default function PresentationPage() {
             <div className="text-center">
               <SlideEyebrow>A no-brainer to install</SlideEyebrow>
               <h2 className="mt-6 text-[clamp(36px,5vw,72px)] font-semibold tracking-[-0.03em]">
-                Three zeros.
+                Three{" "}
+                <span className="italic" style={{ color: "#239C94" }}>
+                  zeros
+                </span>
+                .
               </h2>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <ZeroCard label="onboarding" body="One-click install." />
               <ZeroCard
-                heading="Zero onboarding."
-                body="One-click install."
-              />
-              <ZeroCard
-                heading="Zero code access."
+                label="code access"
                 body="Your code never leaves your company."
               />
-              <ZeroCard
-                heading="Zero noise."
-                body="Only providers you actually use."
-              />
+              <ZeroCard label="noise" body="Only providers you actually use." />
             </div>
           </div>
         </Slide>
@@ -291,11 +291,14 @@ function SlideEyebrow({
   );
 }
 
-function ZeroCard({ heading, body }: { heading: string; body: string }) {
+function ZeroCard({ label, body }: { label: string; body: string }) {
   return (
     <div className="bg-surface border border-border-light rounded-2xl p-8 text-left">
       <div className="text-[32px] font-semibold tracking-tight leading-tight">
-        {heading}
+        <span className="italic" style={{ color: "#239C94" }}>
+          Zero
+        </span>{" "}
+        {label}.
       </div>
       <div className="mt-4 text-[17px] leading-snug text-muted">{body}</div>
     </div>
