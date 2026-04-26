@@ -236,3 +236,62 @@ html {
 .meridian-root .animate-fade-up-delay2 {
   animation: meridianFadeUp 0.7s ease-out 0.45s both;
 }
+
+/* ── ToS text — legal fine-print ─────────────────────────────── */
+.meridian-root .tos-text {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 9.5px;
+  line-height: 1.35;
+  color: #1a1a1a;
+  letter-spacing: -0.005em;
+}
+
+/* ── Typewriter caret ────────────────────────────────────────── */
+@keyframes meridianBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.meridian-root .caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #b91c1c;
+  margin-left: 1px;
+  transform: translateY(2px);
+  animation: meridianBlink 0.7s step-end infinite;
+}
+
+/* ── Bad-phrase highlight ────────────────────────────────────── */
+@keyframes meridianHighlightIn {
+  from { background-size: 100% 0%; }
+  to   { background-size: 100% 60%; }
+}
+.meridian-root .bad-phrase {
+  position: relative;
+  background-image: linear-gradient(to top, rgba(220, 38, 38, 0.35), rgba(220, 38, 38, 0.35));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0%;
+  animation: meridianHighlightIn 0.6s ease-out forwards;
+  color: #7f1d1d;
+  font-weight: 600;
+}
+
+/* ── Bad paragraph container reveal ──────────────────────────── */
+@keyframes meridianParagraphDrop {
+  0%   { opacity: 0; transform: translateY(-12px); box-shadow: 0 0 0 rgba(185, 28, 28, 0); }
+  60%  { opacity: 1; transform: translateY(0);   box-shadow: 0 12px 32px rgba(185, 28, 28, 0.25); }
+  100% { opacity: 1; transform: translateY(0);   box-shadow: 0 6px 16px rgba(185, 28, 28, 0.18); }
+}
+.meridian-root .paragraph-drop {
+  animation: meridianParagraphDrop 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Progress bar for "publishing" state ─────────────────────── */
+@keyframes meridianProgressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.meridian-root .progress-fill {
+  animation: meridianProgressFill var(--duration, 1s) linear forwards;
+}
