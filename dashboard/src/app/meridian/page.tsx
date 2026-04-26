@@ -42,7 +42,7 @@ export default function MeridianLanding() {
             </div>
           </Link>
           <Link
-            href="/legal"
+            href="/meridian/legal"
             className="text-[12px] tracking-widest uppercase text-white/80 hover:text-gold-400 transition-colors"
           >
             Legal
@@ -104,7 +104,7 @@ export default function MeridianLanding() {
             © 2004–2026 Meridian Global Holdings, LLC · All rights reserved
           </div>
           <div className="flex gap-4">
-            <Link href="/legal" className="hover:text-gold-400 transition-colors">Legal</Link>
+            <Link href="/meridian/legal" className="hover:text-gold-400 transition-colors">Legal</Link>
             <span>Privacy</span>
             <span>Cookies</span>
           </div>
