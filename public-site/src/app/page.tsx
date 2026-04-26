@@ -3,13 +3,75 @@ import { HeroGrid } from "@/components/hero-grid";
 import { Navbar } from "@/components/navbar";
 import { WaitlistForm } from "@/components/waitlist-form";
 
+const tosChanges: { company: string; change: string; date: string }[] = [
+  {
+    company: "Anthropic",
+    change:
+      "Consumer data used for model training by default; retention extended 30d → 5yr",
+    date: "Sep 2025",
+  },
+  {
+    company: "Vercel",
+    change:
+      "Hobby plan code opted into AI training by default; arbitration extended to US",
+    date: "Mar 2026",
+  },
+  {
+    company: "OpenAI",
+    change:
+      "Usage policy now restricts medical, legal, and financial advice via API",
+    date: "Oct 2025",
+  },
+  {
+    company: "Stripe",
+    change: "New $15 fee introduced for counter-disputes",
+    date: "Jun 2025",
+  },
+  {
+    company: "Anthropic",
+    change:
+      "Usage policy expanded for agentic capabilities (Claude Code, Computer Use)",
+    date: "Sep 2025",
+  },
+  {
+    company: "Twilio",
+    change: "A2P 10DLC verification retries now charged per attempt",
+    date: "Aug 2025",
+  },
+  {
+    company: "OpenAI",
+    change:
+      "New Services Agreement and Data Processing Addendum take effect",
+    date: "Jan 2026",
+  },
+  {
+    company: "AWS",
+    change:
+      "Customer Agreement permits charging fallback payment method on primary failure",
+    date: "Feb 2025",
+  },
+  {
+    company: "Google Cloud",
+    change: "Workspace now governed by Google Cloud Terms of Service",
+    date: "Oct 2025",
+  },
+  {
+    company: "Stripe",
+    change:
+      "Services Agreement and Connected Account Agreement updated",
+    date: "Nov 2025",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-full">
       <Navbar />
 
+      {/* Hero + ticker fill exactly one viewport */}
+      <div className="flex flex-col min-h-[calc(100svh-3.5rem)]">
       {/* Hero */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-36 sm:pt-48 sm:pb-52 min-h-[calc(100svh-3.5rem)] sm:min-h-0 flex flex-col justify-center sm:block">
+      <section className="relative overflow-hidden px-6 py-20 sm:py-24 flex-1 flex flex-col justify-center">
         <HeroGrid />
         <div className="relative max-w-4xl mx-auto text-center">
           <span
@@ -61,6 +123,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ToS change ticker — recent real-world changes Perry tracks */}
+      <section
+        className="relative overflow-hidden border-t border-border-light bg-surface py-4"
+        aria-label="Recently observed terms-of-service changes"
+      >
+        <div
+          className="flex items-center gap-14 animate-[scroll_180s_linear_infinite] whitespace-nowrap w-max"
+          aria-hidden="true"
+        >
+          {[...tosChanges, ...tosChanges].map((item, i) => (
+            <ToSTickerItem key={i} {...item} />
+          ))}
+        </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-surface to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-surface to-transparent" />
+      </section>
+      </div>
 
       {/* What Perry does */}
       <section className="border-t border-border-light bg-surface px-6 py-28 sm:py-36">
@@ -216,6 +296,26 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function ToSTickerItem({
+  company,
+  change,
+  date,
+}: {
+  company: string;
+  change: string;
+  date: string;
+}) {
+  return (
+    <span className="inline-flex items-baseline gap-3 text-[13px] leading-none">
+      <span className="font-medium text-foreground/90">{company}</span>
+      <span className="text-muted">{change}</span>
+      <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted/60">
+        {date}
+      </span>
+    </span>
   );
 }
 

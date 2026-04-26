@@ -93,6 +93,13 @@ html {
   animation: pulseDot 1.8s ease-in-out infinite;
 }
 
+/* Marquee scroll for the ToS change ticker. Track is duplicated 2x in markup,
+   so translating -50% creates a seamless loop. */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* Hero ToS text — faint base, darker text revealed in a circle around the cursor */
 .hero-fx {
   position: absolute;
