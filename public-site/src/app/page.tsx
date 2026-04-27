@@ -86,7 +86,7 @@ export default function Home() {
             Vendor terms, watched
           </span>
 
-          <h1 className="animate-fade-in-up-delay-1 mt-8 text-[clamp(44px,6.2vw,88px)] leading-[1.02] font-semibold tracking-[-0.035em]">
+          <h1 className="animate-fade-in-up-delay-1 mt-8 text-[clamp(44px,6.2vw,88px)] leading-[1.02] font-extralight tracking-[-0.035em]">
             Terms changed.{" "}
             <span style={{ color: "var(--accent-teal)" }}>
               You didn&apos;t notice.
