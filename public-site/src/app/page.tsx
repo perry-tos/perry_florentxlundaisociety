@@ -86,12 +86,14 @@ export default function Home() {
             Vendor terms, watched
           </span>
 
-          <h1 className="animate-fade-in-up-delay-1 mt-8 text-[clamp(44px,6.2vw,88px)] leading-[1.02] font-thin tracking-[-0.035em]">
-            Terms changed.{" "}
+          <h1 className="animate-fade-in-up-delay-1 mt-8 text-[clamp(34px,4.73vw,68px)] leading-[1.02] font-thin tracking-[-0.035em]">
+            Terms changed.
+            <br />
             <span style={{ color: "var(--accent-teal)" }}>
               You didn&apos;t notice.
-            </span>{" "}
-              <span className="underline decoration-[3px] md:decoration-[6px] decoration-[var(--accent-amber)] underline-offset-[6px]">
+            </span>
+            <br />
+            <span className="underline decoration-[3px] md:decoration-[6px] decoration-[var(--accent-amber)] underline-offset-[6px]">
               Perry did.
             </span>
           </h1>
