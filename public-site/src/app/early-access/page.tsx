@@ -23,7 +23,7 @@ export default function EarlyAccessPage() {
               Early access
             </span>
 
-            <h1 className="mt-6 text-[clamp(32px,4.2vw,56px)] leading-[1.1] font-semibold tracking-[-0.03em]">
+            <h1 className="mt-6 text-[clamp(32px,4.2vw,56px)] leading-[1.1] font-light tracking-[-0.03em]">
               Request{" "}
               <span className="underline decoration-[5px] decoration-[var(--accent-amber)] underline-offset-[5px]">
                 early access
